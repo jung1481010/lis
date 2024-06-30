@@ -10,7 +10,7 @@ import RequireAuth from './components/RequireAuth';
 const Right = () => {
   return (
     <main className="main">
-      <div className="container">
+      <div className="main__container">
         <Routes>
           <Route path="/" element={<Info />} />
           <Route
