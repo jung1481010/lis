@@ -1,0 +1,43 @@
+.navs {
+  padding: 10px;
+  height: 100%;
+}
+
+.navs__menu {
+  padding: 0px;
+  list-style: none;
+}
+
+.navs__menu-item {
+  display: block;
+  width: 100%;
+}
+
+.navs__menu-button {
+  color: white;
+  display: flex;
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.navs__menu-button--active {
+  background-color: var(--color-blue);
+}
+
+.navs__menu-button:hover:not(.navs__menu-button--active) {
+  background-color: #002140;
+}
+
+.navs__menu-button:disabled {
+  opacity: 0.2;
+  cursor: not-allowed;
+}

@@ -1,0 +1,15 @@
+.company-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.company-info {
+  display: flex;
+  gap: 1rem;
+}
+
+.company-info img {
+  border-radius: 0.25rem;
+  width: 100%;
+  max-width: 300px;
+}

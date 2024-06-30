@@ -1,0 +1,67 @@
+/* Block */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 500px;
+  width: 400px;
+  padding: 1.5625rem;
+}
+
+/* Element */
+.login-form__title {
+  font-size: 1.5rem;
+  margin: 1rem 0;
+}
+
+.login-form__form {
+  width: 100%;
+  height: 100%;
+}
+
+.login-form__label {
+  display: block;
+  margin-top: 1.4rem;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.login-form__input {
+  display: block;
+  height: 2.5rem;
+  width: 100%;
+  border-radius: 0.375rem;
+  padding: 0 0.625rem;
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #d9d9d9;
+  background-color: #ecf2f9;
+}
+
+/* Modifier */
+.login-form__error {
+  color: red;
+  font-size: 0.875rem;
+}
+
+/* Element with pseudo-class */
+.login-form__input::placeholder {
+  color: #c0c0c0;
+}
+
+.login-form__input:focus {
+  border: 1px solid var(--color-blue);
+}
+
+.login-form__submit-button {
+  margin-top: 2.5rem;
+  width: 100%;
+  background: var(--color-blue);
+  color: white;
+  padding: 0.625rem 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  border: none;
+}
