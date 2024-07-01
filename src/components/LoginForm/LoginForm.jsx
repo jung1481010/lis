@@ -10,6 +10,7 @@ const LoginForm = ({ onSubmit }) => {
     e.preventDefault();
     // 初始化錯誤對象
     let newErrors = {};
+    const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
 
     // 檢查name和password是否為空
     if (!name.trim()) {
@@ -17,6 +18,10 @@ const LoginForm = ({ onSubmit }) => {
     }
     if (!password.trim()) {
       newErrors.password = '密碼不可以為空';
+    } else if (!passwordRegex.test(password)) {
+      // 檢查密碼強度
+      newErrors.password =
+        '密碼至少需要8個字符，並且包含數字、大寫字母、小寫字母和特殊字符';
     }
 
     // 如果有錯誤，更新錯誤狀態並返回
