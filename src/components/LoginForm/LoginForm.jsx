@@ -44,6 +44,7 @@ const LoginForm = ({ onSubmit }) => {
             value={name}
             placeholder="請輸入使用者名稱"
             onChange={(e) => setName(e.target.value)}
+            autoComplete="username"
           />
           {errors.name && (
             <div className="login-form__error">{errors.name}</div>
@@ -54,6 +55,7 @@ const LoginForm = ({ onSubmit }) => {
           <input
             className="login-form__input"
             type="password"
+            autoComplete="current-password"
             value={password}
             placeholder="請輸入密碼"
             onChange={(e) => setPassword(e.target.value)}
