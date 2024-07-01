@@ -1,4 +1,8 @@
 import React, { createContext, useReducer, useContext } from 'react';
+import CryptoJS from 'crypto-js';
+
+const yaeak =
+  '!2xZ!h9iu-B4r2iL.HWCN3sXgGxEHhX9qsDxh3jZKR6GPMbk@wPaHAnyQ9cMv*hV';
 
 // 建立 AuthContext
 const AuthContext = createContext();
@@ -13,8 +17,18 @@ const actionTypes = {
 function authReducer(state, action) {
   switch (action.type) {
     case actionTypes.LOGIN:
-      localStorage.setItem('name', action.payload.name);
-      localStorage.setItem('password', action.payload.password);
+      const encryptedName = CryptoJS.AES.encrypt(
+        action.payload.name,
+        yaeak
+      ).toString();
+      const encryptedPassword = CryptoJS.AES.encrypt(
+        action.payload.password,
+        yaeak
+      ).toString();
+
+      localStorage.setItem('name', encryptedName);
+      localStorage.setItem('password', encryptedPassword);
+
       return {
         ...state,
         name: action.payload.name,
@@ -37,8 +51,16 @@ function authReducer(state, action) {
 
 const AuthProvider = ({ children }) => {
   const initialState = {
-    name: localStorage.getItem('name') || '',
-    password: localStorage.getItem('password') || '',
+    name: localStorage.getItem('name')
+      ? CryptoJS.AES.decrypt(localStorage.getItem('name'), yaeak).toString(
+          CryptoJS.enc.Utf8
+        )
+      : '',
+    password: localStorage.getItem('password')
+      ? CryptoJS.AES.decrypt(localStorage.getItem('password'), yaeak).toString(
+          CryptoJS.enc.Utf8
+        )
+      : '',
     isLogin: !!localStorage.getItem('name'), // 根據 localStorage 中是否有 name 來決定初始登入狀態
   };
 
