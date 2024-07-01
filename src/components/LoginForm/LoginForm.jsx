@@ -32,6 +32,8 @@ const LoginForm = ({ onSubmit }) => {
 
     // 如果沒有錯誤，清除錯誤狀態並提交表單
     setErrors({});
+    setName('');
+    setPassword('');
     onSubmit({ name, password });
   };
   return (
